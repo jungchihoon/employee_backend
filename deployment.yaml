@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: employee-backend
+  name: backend
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: employee-backend
+      app: backend
   template:
     metadata:
       labels:
-        app: employee-backend
+        app: backend
     spec:
       containers:
-      - name: employee-backend
+      - name: backend
         image: giglepeople/crud_final
         imagePullPolicy: Always
         env:
