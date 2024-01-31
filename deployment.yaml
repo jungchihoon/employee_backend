@@ -14,7 +14,7 @@ spec:
         app: employee-backend
     spec:
       containers:
-      - name: backend-springboot
+      - name: employee-backend
         image: giglepeople/crud_final
         imagePullPolicy: Always
         env:
