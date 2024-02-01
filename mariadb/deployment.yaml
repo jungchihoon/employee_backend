@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: yyazi/crud_security:h2
+        imagePullPolicy: Always
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "prd"
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: "edu"
+          - name: SPRING_DATASOURCE_URL 
+            value: "jdbc:mariadb://10.43.14.221:3306/edu"
+        ports:
+        - containerPort: 3306
+
